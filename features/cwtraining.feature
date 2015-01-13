@@ -20,3 +20,21 @@ Scenario: Complete address, select store and
     And I enter 60655 in the Zip Code field
     And I click the Continue button
   Then I should see the Entrees page
+  When I click Build Your Own pizza
+    And I choose medium crunchy thin crust
+    And I click next step
+    And I choose hearty marinara sauce
+    And I choose light sauce
+    And I click next step
+    And I click yes cheese it up
+    And I select pepperoni
+    And I select italian sausage
+    And I select cheddar cheese
+    And I select spinach
+    And I click Add to Order
+  Then I should see the Entrees page
+  When I click Specialty Pizza
+    And I choose Tuscan Salami & Roasted Veggie
+    And I choose extra banana peppers
+    And I click Add to Order
+  Then I should see the specialty pizza page  

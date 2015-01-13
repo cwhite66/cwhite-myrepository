@@ -47,3 +47,65 @@ end
 Then(/^I should see the Entrees page$/) do
   expect(page).to have_selector(:id, 'entreesPage')
 end
+
+# order first pizza
+When(/^I click Build Your Own pizza$/) do
+  find(:xpath, '//a[@data-wt-panelname=\'byopizza\']').click
+end
+
+When(/^I choose medium crunchy thin crust$/) do
+  find(:xpath, '//input[@value=\'12THIN\']').click
+end
+
+When(/^I click next step$/) do
+  click_link('Next Step ►')
+end
+
+When(/^I choose hearty marinara sauce$/) do
+  choose('S_PIZZA|Topping|Xm')
+end
+
+When(/^I choose light sauce$/) do
+  select('Light', :from => 'Weight|Xm')
+end
+
+When(/^I click yes cheese it up$/) do
+  click_button('Yes, cheese it up!')
+end
+
+When(/^I select pepperoni$/) do
+  check('S_PIZZA|Topping|P')
+end
+
+When(/^I select italian sausage$/) do
+  check('S_PIZZA|Topping|S')
+end
+
+When(/^I select cheddar cheese$/) do
+  check('S_PIZZA|Topping|E')
+end
+
+When(/^I select spinach$/) do
+  check('S_PIZZA|Topping|Si')
+end
+
+When(/^I click Add to Order$/) do
+  click_button('Add to Order')
+end
+
+# order second pizza
+When(/^I click Specialty Pizza$/) do
+  find(:xpath, '//a[@data-wt-panelname=\'specialtypizza\']').click
+end
+
+When(/^I choose Tuscan Salami & Roasted Veggie$/) do
+  find(:xpath, '//a[@href=\'#/product/S_PIZSV/builder/\' and @data-clicked-element=\'button\']').click
+end
+
+When(/^I choose extra banana peppers$/) do
+  find(:xpath, '//input[@value=\'1/1|1.5\' and @name=\'S_PIZSV|Topping|Z\']').click
+end
+
+Then(/^I should see the specialty pizza page$/) do
+    expect(page).to have_selector(:id,'categoryPage2')
+end
