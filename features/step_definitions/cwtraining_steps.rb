@@ -109,3 +109,44 @@ end
 Then(/^I should see the specialty pizza page$/) do
     expect(page).to have_selector(:id,'categoryPage2')
 end
+
+# checkout verification
+When(/^I click the checkout button$/) do
+  click_link('Checkout')
+end
+
+Then(/^I should see the checkout page$/) do
+  expect(page).to have_selector(:id, 'myProfileInCheckout')
+end
+
+Then(/^I should see an order for a medium thin pizza$/) do
+  expect(page).to have_content('Medium (12") Thin Pizza')
+end
+
+Then(/^I should see a price for a medium thin pizza$/) do
+  expect(page).to have_content('$14.99')
+end
+
+Then(/^I should see an order for a tuscan salami & roasted veggie pizza$/) do
+  expect(page).to have_content('Tuscan Salami & Roasted Veggie')
+end
+
+Then(/^I should see a price for a tuscan salami & roasted veggie pizza$/) do
+  expect(page).to have_content('$8.99')
+end
+
+Then(/^I should see a food & beverage total$/) do
+  expect(page).to have_content('$23.98')
+end
+
+Then(/^I should see a delivery charge$/) do
+  expect(page).to have_content('$2.99')
+end
+
+Then(/^I should see the taxes$/) do
+  expect(page).to have_content('$1.92')
+end
+
+Then(/^I should see the order total$/) do
+  expect(page).to have_content('$28.89')
+end

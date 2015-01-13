@@ -7,7 +7,7 @@ Scenario: Check the Dominos home page
   When I visit the Dominos home page
   Then I should see the Dominos home page
 
-@address
+@address @pizzas @checkout
 Scenario: Complete address, select store and
   Given I visit the Dominos home page
   When I click the Order Online tab
@@ -37,4 +37,14 @@ Scenario: Complete address, select store and
     And I choose Tuscan Salami & Roasted Veggie
     And I choose extra banana peppers
     And I click Add to Order
-  Then I should see the specialty pizza page  
+  Then I should see the specialty pizza page
+  When I click the checkout button
+  Then I should see the checkout page
+    And I should see an order for a medium thin pizza
+    And I should see a price for a medium thin pizza
+    And I should see an order for a tuscan salami & roasted veggie pizza
+    And I should see a price for a tuscan salami & roasted veggie pizza
+    And I should see a food & beverage total
+    And I should see a delivery charge
+    And I should see the taxes
+    And I should see the order total
